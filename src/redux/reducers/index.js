@@ -4,6 +4,7 @@ import alert from './alert'
 import auth from './auth'
 import profile from './profile'
 import post from './post'
+import userProfile from './userProfile'
 import storage from 'redux-persist/lib/storage';
 import  loader from './loader'
 
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
     auth,
     profile,
     loader,
-    post
+    post,
+    userProfile
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

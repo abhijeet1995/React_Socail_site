@@ -1,6 +1,7 @@
 
 import {
-CHANGE_PASSWORD
+CHANGE_PASSWORD,
+PASSWORD_FAIL
 } from '../actions/type'
 
 const initialState = {
@@ -14,7 +15,7 @@ export default function (state = initialState, action) {
 				...state,
 				loading: false,
 			}
-		case PASSWORD_CHANGE_FAIL:
+		case PASSWORD_FAIL:
 			return {
 				...state,
 				loading: false,

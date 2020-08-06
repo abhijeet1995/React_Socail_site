@@ -39,7 +39,7 @@ const CreateProfile= ({setAlert,loading,loader,createProfile,history,alert,load}
 
 	return (
 		<Fragment>
-			<PopUp open={alert.open} type={alert.openType} />
+			<PopUp open={alert.open} history={history} type={alert.openType} link={"/dashboard"}   />
 			<div className="container">
 				<div className="row">
 					<div className="col-md-4">

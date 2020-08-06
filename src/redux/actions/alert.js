@@ -15,7 +15,7 @@ export const setAlert = (data, typeRes, openType, cancelButton, customOkay) => d
     });
     setTimeout(() => {
         dispatch({ type: REMOVE_ALERT });
-    }, 1000);
+    }, 3000);
 };
 
 export const removeAlert = () => dispatch => {

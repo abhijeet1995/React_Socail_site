@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import {connect} from 'react-redux'
 import {addPost} from '../../redux/actions/post'
-import PopUp from '../../common/Popup'
-import { setAlert, removeAlert } from '../../redux/actions/alert'
+import {removeAlert } from '../../redux/actions/alert'
 import { loader } from '../../redux/actions/loader'
 import { CircularProgress } from '@material-ui/core'
 import Snack from '../../common/Snack'
@@ -21,7 +20,7 @@ const PostForm = ({ addPost, alert, load,removeAlert }) => {
 
 	return (
 		<div>
-			<Snack open={alert.open} message={alert.message} open={alert.open} close={handleClose} />
+			<Snack type={alert.type}  message={alert.message} open={alert.open} close={handleClose} />
 			<div class="form-group">
 				<label for="exampleFormControlTextarea1"> Description</label>
 				<textarea className="form-control"

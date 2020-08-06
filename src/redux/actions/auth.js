@@ -13,7 +13,7 @@ import {
 } from './type';
 import { setAlert } from './alert'
 import setAuthToken from '../utils/setAuthToken';
-
+import {envData} from '../../config/config'
 
 //Load user
 
@@ -22,7 +22,8 @@ export const loadUser = () => async dispatch => {
 		setAuthToken(localStorage.token)
 	}
 	try {
-		const res = await axios.get('http://localhost:8080/api/auth');
+		// http://localhost:8080/api/auth
+		const res = await axios.get("http://localhost:8080/api/auth");
 		dispatch({
 			type: USER_LOADED,
 			payload: res.data
@@ -52,7 +53,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.post('http://localhost:8080/api/users', body, config);
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/users`, body, config);
 		console.log("=========", res.data)
 		dispatch({
 			type: REGISTER_SUCCESS,
@@ -97,16 +98,18 @@ export const login = (email, password) => async dispatch => {
 	}
 	localStorage.clear();
 	const body = JSON.stringify({ email, password })
+	console.log("body",body);
 	try {
 		dispatch({
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.post('http://localhost:8080/api/auth', body, config);
+		// http://localhost:8080/api/aut
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/auth`, body, config);
 		console.log("=========", res.data)
 		dispatch({
 			type: LOGIN_SUCCESS,
-			payload: { ...res.data, loading: false }
+			payload: res.data, loading: false 
 		})
 		dispatch(loadUser())
 		dispatch({
@@ -120,7 +123,7 @@ export const login = (email, password) => async dispatch => {
 			payload: false
 		})
 		if (err.response) {
-			dispatch(setAlert(err.response.data.error));
+			dispatch(setAlert(err.response.data.errors));
 			dispatch({
 				type: LOGIN_FAILURE
 			});
@@ -149,7 +152,8 @@ export const passwordReset = ({ email }) => async dispatch => {
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.post("http://localhost:8080/api/auth/reset-password", { email }, config);
+		
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/auth/reset-password`, { email }, config);
 		dispatch(setAlert(res.data.message))
 		dispatch({
 			type: LOADER,
@@ -176,7 +180,7 @@ export const passwordReset = ({ email }) => async dispatch => {
 //Logout //clear 
 // Logout / Clear Profile
 export const logout = () => dispatch => {
-	//dispatch({ type: CLEAR_PROFILE })
+	dispatch({ type: CLEAR_PROFILE })
 	dispatch({ type: LOGOUT });
 	dispatch({
 		type: REMOVE_ALERT,

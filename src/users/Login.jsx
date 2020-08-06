@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import PropTypes from 'prop-types'
 import { login } from '../redux/actions/auth'
 import { loader } from '../redux/actions/loader'
 import { setAlert, removeAlert } from '../redux/actions/alert';
@@ -10,6 +9,8 @@ import PopUp from '../common/Popup'
 
 
 const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => {
+
+
 	const [formData, setFormData] = useState({
 		email: 'shikharabhijeet1995@gmail.com',
 		password: 'munger@95',
@@ -17,13 +18,17 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 	})
 
 	const { email, password } = formData
-	const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
-	React.useEffect(() => {
-		loader(false)
-	}, [])
+	const onChange = e => {
+
+		setFormData({ ...formData, [e.target.name]: e.target.value })
+	}
+	const enabled =
+		email.length > 0 &&
+		password.length > 0;
 
 	const onSubmit = async e => {
 		e.preventDefault();
+
 		login(email, password)
 
 	}
@@ -51,6 +56,7 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 									onChange={e => onChange(e)}
 									value={email}
 									name="email"
+
 								/>
 							</div>
 							<div class="form-group">
@@ -62,11 +68,13 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 									onChange={e => onChange(e)}
 									value={password}
 									name="password"
+
 								/>
 							</div>
 							<div class="form-group">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={onSubmit}
+									disabled={!enabled}
 									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 
@@ -74,8 +82,13 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 									}
 								</button>
 							</div>
-							<div>
-								<Link to="/forgotpassword" style={{ fontSize: "14px" ,color:"#333333"}}>Forgot password</Link>
+							<div className="d-flex justify-content-between">
+								<div>
+									<Link to="/forgotpassword" style={{ fontSize: "12px", color: "#333333" }}>Forgot password</Link>
+								</div>
+								<div>
+									<Link to="/signup" style={{ fontSize: "12px", color: "#333333" }}> Not account ? Please  Register</Link>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -88,10 +101,7 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 	)
 }
 
-login.PropTypes = {
-	login: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool,
-}
+
 
 const mapStateToProps = state => ({
 	isAuthenticated: state.auth.isAuthenticated,

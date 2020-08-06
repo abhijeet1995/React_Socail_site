@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {setAlert} from './alert'
-
+import {envData} from '../../config/config'
 import { GET_PROFILE, PROFILE_ERROR, LOADER, UPDATE_PROFILE, CLEAR_PROFILE, DELETE_ACCOUNT, GET_ALL_PROFILE, GET_REPOS} from './type'
 
 
@@ -8,8 +8,7 @@ import { GET_PROFILE, PROFILE_ERROR, LOADER, UPDATE_PROFILE, CLEAR_PROFILE, DELE
 
 export const getCurrentProfile = () =>async dispatch =>{
 	try{
-		const res = await axios.get('http://localhost:8080/api/profile/me')
-		
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/profile/me`)
 		dispatch({
 			type:GET_PROFILE,
 			payload:res.data
@@ -27,12 +26,13 @@ export const getCurrentProfile = () =>async dispatch =>{
 //Get all Profile
 
 export const getALlProfile = () => async dispatch => {
-	
+	//dispatch({ type: CLEAR_PROFILE });
+
 	try {
-		const res = await axios.get('http://localhost:8080/api/profile')
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/profile`)
 		dispatch({
 			type: GET_ALL_PROFILE,
-			payload: [...res.data]
+			payload: res.data
 		})
 		{
 			console.log("payload",res.data)
@@ -54,7 +54,7 @@ export const getALlProfile = () => async dispatch => {
 export const getProfileById = userId => async dispatch => {
 	
 	try {
-		const res = await axios.get(`http://localhost:8080/api/profile/user/${userId}`)
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/profile/user/${userId}`)
 		dispatch({
 			type: GET_PROFILE,
 			payload:res.data
@@ -79,7 +79,7 @@ export const getProfileById = userId => async dispatch => {
 export const getGitRepos = username => async dispatch => {
 	
 	try {
-		const res = await axios.get(`http://localhost:8080/api/profile/github/${username}`)
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/profile/github/${username}`)
 		dispatch({
 			type: GET_REPOS,
 			payload: res.data
@@ -112,7 +112,7 @@ export const createProfile = (formdata,history,edit=false) => async dispatch =>{
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.post("http://localhost:8080/api/profile",formdata,config);
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/profile`,formdata,config);
 		dispatch({
 			type:GET_PROFILE,
 			payload:res.data
@@ -121,10 +121,10 @@ export const createProfile = (formdata,history,edit=false) => async dispatch =>{
 			type: LOADER,
 			payload: false
 		})
-		dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
-		if(!edit){
-			history.push('/dashboard')
-		}
+		dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success',1,"/"));
+		// if(!edit){
+		// 	history.push('/dashboard')
+		// }
 	}
 	catch(err){
 		dispatch({
@@ -163,10 +163,10 @@ export const addExperience = (formdata,history) => async dispatch=>{
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.put("http://localhost:8080/api/profile/experience", formdata, config);
+		const res = await axios.put(`${envData.url.REACT_APP_API_URL}/profile/experience`, formdata, config);
 		dispatch({
 			type: UPDATE_PROFILE,
-			payload: [...res.data]
+			payload: res.data
 		});
 		dispatch({
 			type: LOADER,
@@ -212,7 +212,7 @@ export const addEducation = (formdata, history) => async dispatch => {
 			type: LOADER,
 			payload: true
 		})
-		const res = await axios.put("http://localhost:8080/api/profile/education", formdata, config);
+		const res = await axios.put(`${envData.url.REACT_APP_API_URL}/profile/education`, formdata, config);
 		dispatch({
 			type: UPDATE_PROFILE,
 			payload: res.data
@@ -253,7 +253,7 @@ export const addEducation = (formdata, history) => async dispatch => {
 export const deleteExperience = (id) => async dispatch =>{
 	if (window.confirm('Are YOu Sure TO delete Account')) {
 		try {
-			const res = await axios.delete(`http://localhost:8080/api/profile/experience/${id}`);
+			const res = await axios.delete(`${envData.url.REACT_APP_API_URL}/profile/experience/${id}`);
 			dispatch({
 				type: UPDATE_PROFILE,
 				payload: res.data
@@ -286,7 +286,7 @@ export const deleteExperience = (id) => async dispatch =>{
 export const deleteEducation= (id) => async dispatch => {
 	if (window.confirm('Are YOu Sure TO delete Account')) {
 		try {
-			const res = await axios.delete(`http://localhost:8080/api/profile/education/${id}`);
+			const res = await axios.delete(`${envData.url.REACT_APP_API_URL}/profile/education/${id}`);
 			dispatch({
 				type: UPDATE_PROFILE,
 				payload: res.data
@@ -315,13 +315,13 @@ export const deleteEducation= (id) => async dispatch => {
 }
 //Delete Account 
 
-export const deleteAccount = (id) => async dispatch => {
-	if(window.confirm('Are YOu Sure TO delete Account')){
+export const deleteAccount = () => async dispatch => {
+	if(window.confirm('Are You Sure TO delete Account')){
 		try {
-			const res = await axios.delete(`http://localhost:8080/api/profile`);
+			const res = await axios.delete(`${envData.url.REACT_APP_API_URL}/profile`);
 			dispatch({type: CLEAR_PROFILE})
 			dispatch({ type: DELETE_ACCOUNT })
-			dispatch(setAlert("YOur Account Has been Permannetly Deleted Sucessfully"))
+			dispatch(setAlert("Your Account Has been Permannetly Deleted Sucessfully"))
 		} catch (err) {
 			if (err.response) {
 				dispatch(setAlert(err.response.data.error));

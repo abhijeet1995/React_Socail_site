@@ -1,21 +1,18 @@
 import axios from 'axios'
 import { setAlert } from './alert'
 import { GET_POSTS, POST_ERROR, UPDATE_LIKES, DELETE_POST,ADD_POST, GET_POST,ADD_COMMENT,REMOVE_COMMENT} from '../actions/type'
-
+import {envData} from '../../config/config'
 
 //Get posts
 export const getPost = () => async dispatch => {
 	try{
-		const res = await axios.get('http://localhost:8080/api/posts')
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/posts`)
 		console.log("Profile GetPost",res);
 		dispatch({
 			type:GET_POSTS,
 			payload:res.data
 		})
 	}catch(err){
-		// dispatch({
-		// 	type: POST_ERROR
-		// });
 		console.log(err);
 	}
 }
@@ -25,7 +22,7 @@ export const getPost = () => async dispatch => {
 export const addLike = id => async dispatch => {
 	try {
 	
-		const res = await axios.put(`http://localhost:8080/api/posts/like/${id}`);
+		const res = await axios.put(`${envData.url.REACT_APP_API_URL}/posts/like/${id}`);
 		console.log("Post like",res.data);
 		
 		dispatch({
@@ -46,7 +43,7 @@ export const addLike = id => async dispatch => {
 // Remove like
 export const removeLike = id => async dispatch => {
 	try {
-		const res = await axios.put(`http://localhost:8080/api/posts/unlike/${id}`);
+		const res = await axios.put(`${envData.url.REACT_APP_API_URL}/posts/unlike/${id}`);
 		console.log("Post removelike", res);
 		dispatch({
 			type: UPDATE_LIKES,
@@ -63,14 +60,14 @@ export const removeLike = id => async dispatch => {
 
 export const deletePost = id => async dispatch => {
 	try {
-		await axios.delete(`http://localhost:8080/api/posts/${id}`);
+		await axios.delete(`${envData.url.REACT_APP_API_URL}/posts/${id}`);
 
 		dispatch({
 			type: DELETE_POST,
 			payload: id
 		});
 
-		dispatch(setAlert('Post Removed', 'danger'));
+		dispatch(setAlert('Post Removed', 'error'));
 	} catch (err) {
 		dispatch({
 			type: POST_ERROR,
@@ -87,13 +84,13 @@ export const addPost = formdata => async dispatch => {
 		}
 	}
 	try {
-		const res = await axios.post(`http://localhost:8080/api/posts`,formdata,config);
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/posts`,formdata,config);
 		dispatch({
 			type: ADD_POST,
 			payload: res.data
 		});
-		console.log("addpost",res.data);
-		dispatch(setAlert("Add Post", "success"))
+		//console.log("addpost",res.data);
+		dispatch(setAlert("Add post", "success"))
 	} catch (err) {
 		console.log(err);
 		// dispatch({
@@ -108,7 +105,7 @@ export const addPost = formdata => async dispatch => {
 //Get post
 export const getSinglePost = id => async dispatch => {
 	try {
-		const res = await axios.get(`http://localhost:8080/api/posts/${id}`)
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/posts/${id}`)
 		console.log("Profile GetPost", res);
 		dispatch({
 			type: GET_POST,
@@ -131,13 +128,13 @@ export const addComment = (postId, formdata) => async dispatch => {
 		}
 	}
 	try {
-		const res = await axios.post(`http://localhost:8080/api/posts/comment/${postId}`, formdata, config);
+		const res = await axios.post(`${envData.url.REACT_APP_API_URL}/posts/comment/${postId}`, formdata, config);
 		dispatch({
 			type: ADD_COMMENT,
 			payload: res.data
 		});
 		console.log("Comment", res.data);
-		dispatch(setAlert("Add Comment", "success"))
+		dispatch(setAlert("Add comment", "success"))
 	} catch (err) {
 		console.log(err);
 		// dispatch({
@@ -152,13 +149,13 @@ export const addComment = (postId, formdata) => async dispatch => {
 export const deleteComment = (postId, commentId) => async dispatch => {
 	
 	try {
-		const res = await axios.delete(`http://localhost:8080/api/posts/comment/${postId}/${commentId}`);
+		const res = await axios.delete(`${envData.url.REACT_APP_API_URL}/posts/comment/${postId}/${commentId}`);
 		dispatch({
 			type: REMOVE_COMMENT,
 			payload: commentId
 		});
 		console.log("Comment", res.data);
-		dispatch(setAlert("Comment Remove", "success"))
+		dispatch(setAlert("Comment Remove", "error"))
 	} catch (err) {
 		console.log(err);
 		// dispatch({

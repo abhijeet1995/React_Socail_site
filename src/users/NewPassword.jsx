@@ -2,12 +2,13 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { setAlert, removeAlert } from '../redux/actions/alert'
+import { useHistory } from 'react-router-dom'
+import { setAlert } from '../redux/actions/alert'
 import { connect } from 'react-redux'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import PopUp from '../common/Popup'
-const NewPassword = ({ alert, setAlert, removeAlert }) => {
+import {envData} from '../config/config'
+const NewPassword = ({ alert, setAlert }) => {
 	const history = useHistory()
 	const { token } = useParams()
 	const [values, setValues] = useState({
@@ -27,10 +28,11 @@ const NewPassword = ({ alert, setAlert, removeAlert }) => {
 		if (password !== confirmPassword) {
 			return setAlert("Password donot match")
 		}
+		
 		setValues({ ...values, loading: true });
 		axios({
 			method: "POST",
-			url: "http://localhost:8080/api/auth/new-password",
+			url: `${envData.url.REACT_APP_API_URL}/auth/new-password`,
 			data: { password, token }
 		}).then((response) => {
 			console.log("Password Updated", response);
@@ -48,15 +50,12 @@ const NewPassword = ({ alert, setAlert, removeAlert }) => {
 			setAlert(error.response.data.error)
 		})
 	}
-	const handleClose = () => {
-		removeAlert()
-	}
-
+	
 
 	return (
 		<div>
 
-			<PopUp open={alert.open} history={history} type={alert.openType} link={"/login"} />
+			<PopUp open={alert.open} history={history} type={alert.openType} link={"/"} />
 			<div className="container">
 				<div className="row">
 					<div className="col-md-4">
@@ -74,7 +73,7 @@ const NewPassword = ({ alert, setAlert, removeAlert }) => {
 							/>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Password</label>
+							<label for="exampleInputEmail1">Confirm Password</label>
 							<input type="password"
 								class="form-control"
 								id="exampleInputEmail1"
@@ -89,7 +88,7 @@ const NewPassword = ({ alert, setAlert, removeAlert }) => {
 								style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
 								{
 
-									loading ? (<CircularProgress size={24} style={{ color: '#00FFB9' }} />) : "Password Update"
+									loading ? (<CircularProgress size={24} style={{ color: '#ffffff' }} />) : "Password Update"
 								}
 							</button>
 						</div>

@@ -1,11 +1,8 @@
 import React,{useEffect} from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import App from "./App";
 import {connect} from 'react-redux'
 import Login from './users/Login'
 import Register from './users/Register'
-import Menu from "./core/Menu";
-import Home from "./core/Home";
 import Dashboard from "./dashboard/Dashboard";
 import PrivateRoutes from "./routing/PrivateRoutes";
 import Layout from "./layout/Layout";

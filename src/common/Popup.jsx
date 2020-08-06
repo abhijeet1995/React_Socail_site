@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 
 //material-ui
 import Button from "@material-ui/core/Button";
@@ -9,12 +9,10 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { removeAlert } from "../redux/actions/alert";
-import { connect, useDispatch } from "react-redux";
+import { connect} from "react-redux";
 import { Redirect } from "react-router-dom";
-import { REMOVE_ALERT } from "../redux/actions/type";
 
-function Popup({ open, alert, type, removeAlert, localText, link, onClick }) {
-	const dispatch = useDispatch();
+function Popup({ open, alert, type, removeAlert, link, onClick }) {
 	const [redirect, setRedirect] = React.useState(false);
 
 	function handler() {
@@ -37,7 +35,7 @@ function Popup({ open, alert, type, removeAlert, localText, link, onClick }) {
 				<DialogContent>
 					<Paper style={{ padding: 30, width: 450 }} elevation={0}>
 						<Typography style={{ fontFamily: "semibold", fontSize: "16px" }}>
-							{localText ? localText : alert.message}
+							{alert.message}
 						</Typography>
 					</Paper>
 				</DialogContent>
@@ -49,7 +47,7 @@ function Popup({ open, alert, type, removeAlert, localText, link, onClick }) {
 						style={{ backgroundColor: "#FF5F6D", color: "#fff" }}
 					>
 						Ok
-          </Button>
+          			</Button>
 				</DialogActions>
 			</Dialog>
 		</>

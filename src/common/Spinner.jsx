@@ -15,7 +15,11 @@ const Spinner = () => {
 	return (
 		<div>
 			<div className={classes.root}>
-				<CircularProgress color="secondary" / >
+				<CircularProgress color="secondary" style={{
+					display: 'inline-block',
+					position: 'relative',
+					margin: '0 auto'
+				}} / >
 			</div>
 		</div>
 	)

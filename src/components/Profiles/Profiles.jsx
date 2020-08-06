@@ -2,7 +2,6 @@ import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { getALlProfile } from '../../redux/actions/profile'
 import Spinner from '../../common/Spinner'
-import ProfileItems from './ProfileItems'
 import {Link} from 'react-router-dom'
 const Profiles = ({ getALlProfile, profile: { profiles, loading } }) => {
 
@@ -53,10 +52,10 @@ const Profiles = ({ getALlProfile, profile: { profiles, loading } }) => {
 																return (
 																	<tr>
 																		<td>
-																			<img src={profile.user.avatar} alt="" width="50" height="50" />
+																			<img src={profile.user && profile.user.avatar} alt="" width="50" height="50" />
 																		</td>
-																		<td>{profile.user.name}</td>
-																		<td>{profile.status}</td>
+																		<td>{profile.user && profile.user.name}</td>
+																		<td>{profile.status && profile.status}</td>
 																		<td>{profile.company && profile.company}</td>
 																		<td>{profile.location && profile.location}</td>
 																		<td>
@@ -70,7 +69,7 @@ const Profiles = ({ getALlProfile, profile: { profiles, loading } }) => {
 																			}
 																		</td>
 																		<td>
-																			<Link to={`/profile/${profile.user._id}`} className="btn btn-sm text-white" style={{ backgroundColor:"#FF5F6D"}}>View More</Link>
+																			<Link to={`/profile/${profile.user &&  profile.user._id}`} className="btn btn-sm text-white" style={{ backgroundColor:"#FF5F6D"}}>View More</Link>
 																		</td>
 																	</tr>
 																);

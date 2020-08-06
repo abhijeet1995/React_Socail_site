@@ -18,3 +18,12 @@ const store = createStore(
 const persistor = persistStore(store)
 
 export { store, persistor };
+
+// import rootReducer from './reducers';
+// import { applyMiddleware, createStore } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
+// import thunk from "redux-thunk";
+
+// let middleWares = [thunk];
+// let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleWares)));
+// export { store };

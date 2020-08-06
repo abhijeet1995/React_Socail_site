@@ -10,7 +10,7 @@ const ProfileTop = ({ profile: { status, company, location, website, social, use
 				<img className='round-img my-1' src={avatar} width="100" height="100" alt='' />
 				<p>{name}</p>
 				<p>
-					{status && status} {company && <span> at {company}</span>}
+					{status } {company && <span> at {company}</span>}
 				</p>
 				<p>{location && <span>{location}</span>}</p>
 			</div>

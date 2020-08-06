@@ -47,9 +47,9 @@ const Menu = ({ auth: { isAuthenticated,loading,user},logout}) => {
 			<li className="nav-item">
 				<Link className="nav-link" to='/'>Login</Link>
 			</li>
-			<li>
+			{/* <li>
 				<Link className="nav-link active" to='/Profile'>Profile</Link>
-			</li>
+			</li> */}
 		</ul>
 	);
 	return (

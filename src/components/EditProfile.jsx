@@ -65,7 +65,7 @@ const EditProfile = ({ profile:{profile,loading}, setAlert, loader, createProfil
 		<LayoutSide>
 		<Fragment>
 			<ArrowBackIosIcon onClick={backButton}  style={{display:"cursor"}} />
-			<PopUp open={alert.open} type={alert.openType} />
+				<PopUp open={alert.open} history={history} type={alert.openType} link={"/dashboard"} />
 			
 			<div className="container">
 				<div className="row">

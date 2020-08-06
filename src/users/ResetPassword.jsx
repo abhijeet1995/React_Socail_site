@@ -1,22 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
-import {Link,useHistory }from 'react-router-dom'
 import {passwordReset} from '../redux/actions/auth'
 import {setAlert,removeAlert} from '../redux/actions/alert'
 import {loader} from '../redux/actions/loader'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {connect} from 'react-redux'
 import PopUp from '../common/Popup'
-const ResetPassword = ({ setAlert, alert, removeAlert,load,loader,passwordReset}) => {
-	const history = useHistory()
+const ResetPassword = ({ alert, removeAlert,load,loader,passwordReset}) => {
+
 
 	const [formData, setFormData] = useState({
 		email: '',
 	});
-	React.useEffect(() => {
-		loader(false)
-	}, [])
-
+	
 	const { email } = formData;
 	const onChange = e => setFormData({
 		...formData,
@@ -63,7 +59,7 @@ const ResetPassword = ({ setAlert, alert, removeAlert,load,loader,passwordReset}
 								style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
 								{
 
-									load ? (<CircularProgress size={24} style={{ color: '#00FFB9' }} />) : "Reset Password"
+									load ? (<CircularProgress size={24} style={{ color: '#ffffff' }} />) : "Reset Password"
 								}
 							</button>
 						</div>
