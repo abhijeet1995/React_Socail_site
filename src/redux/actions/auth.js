@@ -23,7 +23,7 @@ export const loadUser = () => async dispatch => {
 	}
 	try {
 		// http://localhost:8080/api/auth
-		const res = await axios.get("http://localhost:8080/api/auth");
+		const res = await axios.get("http://localhost:8000/api/auth");
 		dispatch({
 			type: USER_LOADED,
 			payload: res.data
@@ -176,6 +176,19 @@ export const passwordReset = ({ email }) => async dispatch => {
 
 }
 
+//Update User With Data
+export const updateUser = (data) => (dispatch) => {
+	try {
+		dispatch({
+			type: USER_LOADED ,
+			payload: data,
+		});
+	} catch (err) {
+		dispatch({
+			type: AUTH_ERROR,
+		});
+	}
+};
 
 //Logout //clear 
 // Logout / Clear Profile

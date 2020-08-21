@@ -12,8 +12,8 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 
 
 	const [formData, setFormData] = useState({
-		email: 'shikharabhijeet1995@gmail.com',
-		password: 'munger@95',
+		email: '',
+		password: '',
 
 	})
 
