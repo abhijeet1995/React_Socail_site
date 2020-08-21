@@ -23,7 +23,7 @@ export const loadUser = () => async dispatch => {
 	}
 	try {
 		// http://localhost:8080/api/auth
-		const res = await axios.get(`${envData.REACT_APP_API_URL}/auth`);
+		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/auth`);
 		dispatch({
 			type: USER_LOADED,
 			payload: res.data
