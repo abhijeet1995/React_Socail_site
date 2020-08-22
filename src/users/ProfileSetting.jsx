@@ -141,7 +141,7 @@ const ProfileSetting = ({
 									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 
-										load ? (<CircularProgress size={24} style={{ color: '#FFFFFF' }} />) : "Update Profile"
+										load ? (<CircularProgress size={14} style={{ color: '#FFFFFF' }} />) : "Update Profile"
 									}
 								</button>
 							</div>

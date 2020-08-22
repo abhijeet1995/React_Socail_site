@@ -78,7 +78,7 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 
-										load ? (<CircularProgress size={24} style={{ color: '#FFFFFF' }} />) : "Login"
+										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Login"
 									}
 								</button>
 							</div>
