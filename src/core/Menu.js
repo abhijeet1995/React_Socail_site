@@ -8,10 +8,11 @@ const Menu = ({ auth: { isAuthenticated,loading,user},logout}) => {
 	const authLinks = (
 		<ul className="navbar-nav ml-auto">
 			
-			<li className="nav-item">
+			<li className="nav-item text-capitalize ">
 				<Link className="nav-link">
 					<img src={ user && user.avatar} alt="" width="30" height="30" className="rounded-circle" />
-					Hi {user && user.name}
+					
+					Hi {user && user.name.trim().split(' ')[0]}
 				</Link>
 			</li>
 			<li class="nav-item dropdown">

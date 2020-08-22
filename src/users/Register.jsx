@@ -44,7 +44,7 @@ const Register = ({ setAlert, register, alert, history, removeAlert, load}) => {
 	return (
 		<div>
 			<PopUp open={alert.open} history={history} type={alert.openType} link={"/"} />
-			<div className="container">
+			<div className="container ">
 				<div className="row">
 					<div className="col-md-4">
 
@@ -95,9 +95,9 @@ const Register = ({ setAlert, register, alert, history, removeAlert, load}) => {
 							<div class="form-group">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={clickSubmit}
-									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
+									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center", borderRadius: "50px", padding: "10px", marginTop: "22px" }}>
 									{
-										load ? (<CircularProgress size={16} style={{ color: "white" }} />) : "submit"
+										load ? (<CircularProgress size={14} style={{ color: "white" }} />) : "submit"
 									}
 								</button>
 							</div>

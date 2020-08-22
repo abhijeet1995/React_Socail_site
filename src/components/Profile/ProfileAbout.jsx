@@ -7,15 +7,15 @@ const ProfileAbout = ({
 		user: { name }
 	}
 }) => (
-		<div className='profile-about bg-light p-2'>
+		<div>
 			{bio && (
 				<Fragment>
-					<h2 className='text-primary'>{name.trim().split(' ')[0]} Bio</h2>
+					<h6 className="text-capitalize">{name.trim().split(' ')[0]} Bio</h6>
 					<p>{bio}</p>
-					<div className='line' />
+					<div/>
 				</Fragment>
 			)}
-			<h2 className='text-primary'>Skill Set</h2>
+			<h6>Skill Set</h6>
 			<div className='skills'>
 				{skills.map((skill, index) => (
 					<div key={index} className='p-1'>

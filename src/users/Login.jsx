@@ -41,7 +41,8 @@ const Login = ({ login, isAuthenticated, load, loader, alert}) => {
 		<div>
 			<PopUp open={alert.open} type={alert.openType} />
 			<section id="header">
-				<div className="container-fluid p-5 ">
+				{/* <div className="card" style={{marginTop:"41px"}}>	 */}
+							<div className="container-fluid p-5 ">
 							<div className="row">
 								<div className="col-md-5 ">
 									<form className="">
@@ -103,7 +104,7 @@ const Login = ({ login, isAuthenticated, load, loader, alert}) => {
 							</div>
 						
 					</div>
-			
+			{/* </div> */}
 			</section>
 		</div>
 	)

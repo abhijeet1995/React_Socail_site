@@ -42,7 +42,7 @@ const ResetPassword = ({ alert, removeAlert,load,loader,passwordReset}) => {
 
 					</div>
 					<div className="col-md-4">
-						<div class="form-group">
+						<div class="form-group mt-3">
 							<label for="exampleInputEmail1">Email</label>
 							<input type="email"
 								class="form-control"
@@ -56,10 +56,10 @@ const ResetPassword = ({ alert, removeAlert,load,loader,passwordReset}) => {
 						<div class="form-group">
 							<button className=" btn btn btn-lg btn-block"
 								onClick={onSubmit}
-								style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+								style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center", borderRadius: "50px", marginTop: "22px", padding: "10px"}}>
 								{
 
-									load ? (<CircularProgress size={24} style={{ color: '#ffffff' }} />) : "Reset Password"
+									load ? (<CircularProgress size={15} style={{ color: '#ffffff' }} />) : "Reset Password"
 								}
 							</button>
 						</div>

@@ -90,10 +90,10 @@ const ChangePassword = ({ load, changePassword, alert, removeAlert }) => {
 							<div class="form-group">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={clickSubmit}
-									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
+									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center", borderRadius: "50px", marginTop: "22px", padding: "10px" }}>
 									{
 
-										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Login"
+										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Change Password"
 									}
 								</button>
 							</div>
