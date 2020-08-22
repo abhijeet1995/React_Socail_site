@@ -6,9 +6,9 @@ import { login } from '../redux/actions/auth'
 import { loader } from '../redux/actions/loader'
 import { setAlert, removeAlert } from '../redux/actions/alert';
 import PopUp from '../common/Popup'
+import web from '../images/uNGdWHi.png'
 
-
-const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => {
+const Login = ({ login, isAuthenticated, load, loader, alert}) => {
 
 
 	const [formData, setFormData] = useState({
@@ -40,63 +40,71 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 	return (
 		<div>
 			<PopUp open={alert.open} type={alert.openType} />
-			<div className="container">
-				<div className="row">
-					<div className="col-md-4">
+			<section id="header">
+				<div className="container-fluid p-5 ">
+							<div className="row">
+								<div className="col-md-5 ">
+									<form className="">
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email</label>
+											<input type="name"
+												class="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												onChange={e => onChange(e)}
+												value={email}
+												name="email"
 
-					</div>
-					<div className="col-md-4">
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email</label>
-								<input type="name"
-									class="form-control"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-									onChange={e => onChange(e)}
-									value={email}
-									name="email"
+											/>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail1">Password</label>
+											<input type="password"
+												class="form-control"
+												onChange={e => onChange(e)}
+												value={password}
+												name="password"
 
-								/>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Password</label>
-								<input type="password"
-									class="form-control"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-									onChange={e => onChange(e)}
-									value={password}
-									name="password"
+											/>
+										</div>
+										<div class="form-group">
+											<button className=" btn btn btn-lg btn-block"
+												onClick={onSubmit}
+												disabled={!enabled}
+												style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center",borderRadius:"50px",marginTop:"22px",padding:"10px"}}>
+												{
 
-								/>
-							</div>
-							<div class="form-group">
-								<button className=" btn btn btn-lg btn-block"
-									onClick={onSubmit}
-									disabled={!enabled}
-									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
-									{
-
-										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Login"
-									}
-								</button>
-							</div>
-							<div className="d-flex justify-content-between">
-								<div>
-									<Link to="/forgotpassword" style={{ fontSize: "12px", color: "#333333" }}>Forgot password</Link>
+													load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Login"
+												}
+											</button>
+										</div>
+										<div className="d-flex justify-content-between">
+											<div>
+												<Link to="/forgotpassword" style={{ fontSize: "12px", color: "#333333" }}>Forgot password</Link>
+											</div>
+											<div>
+												<Link to="/signup" style={{ fontSize: "12px", color: "#333333" }}> Not account ? Please  Register</Link>
+											</div>
+										</div>
+									</form>
 								</div>
-								<div>
-									<Link to="/signup" style={{ fontSize: "12px", color: "#333333" }}> Not account ? Please  Register</Link>
+								<div className="col-md-1 border-line">
+									
+								</div>
+								<div className="col-md-5 header-img">
+									<img
+										src={web}
+										className="img-fluid animated"
+										alt="Commom img"
+										style={{paddingLeft:"52px"}}
+										
+									/>
 								</div>
 							</div>
-						</form>
+						
 					</div>
-					<div className="col-md-4">
-
-					</div>
-				</div>
-			</div>
+			
+			</section>
 		</div>
 	)
 }
