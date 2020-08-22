@@ -75,7 +75,7 @@ const Login = ({ login, isAuthenticated, load, loader, alert, removeAlert }) => 
 								<button className=" btn btn btn-lg btn-block"
 									onClick={onSubmit}
 									disabled={!enabled}
-									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 
 										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Login"

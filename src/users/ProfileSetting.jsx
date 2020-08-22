@@ -116,7 +116,7 @@ const ProfileSetting = ({
 								/>
 							</div>
 
-
+							<label >Upload Image</label>
 							<div className="d-flex">
 								
 								<img src={formData.imagePreview} alt="avt" width="50" height="50" style={{ paddingBottom: "4px" }} />
@@ -133,15 +133,15 @@ const ProfileSetting = ({
 									
 								</div>
 							</div>
-
-							<div class="form-group">
+							<br/>
+							<div class="form-group ">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={onSubmit}
 									
-									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 
-										load ? (<CircularProgress size={14} style={{ color: '#FFFFFF' }} />) : "Update Profile"
+										load ? (<CircularProgress size={15} style={{ color: '#FFFFFF' }} />) : "Update Profile"
 									}
 								</button>
 							</div>

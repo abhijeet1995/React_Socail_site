@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+* {
+  font-family: "Muli", sans-serif;
+}
+
 
 .sidenav {
   height: 100%;
@@ -16,14 +22,13 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 15px;
-  color: blueviolet;
   display: block;
   margin-bottom: 10px;
 }
 
-.sidenav a:hover {
+/* .sidenav a:hover {
   color: blue;
-}
+} */
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -52,7 +57,7 @@ display: none;
   padding: 65px;
 }
 .form-control:focus {
-        border-color: #FF5F6D;
+        border-color: #128C7E;
         box-shadow: none !important
 }
 

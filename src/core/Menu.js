@@ -51,7 +51,7 @@ const Menu = ({ auth: { isAuthenticated,loading,user},logout}) => {
 	);
 	return (
 		<div>
-			<nav class="navbar navbar-expand-lg navbar-dark fixed-top  ml-auto" style={{ backgroundColor:"#FF5F6D"}}>
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top  ml-auto" style={{ backgroundColor:"#128C7E"}}>
 				<Link class="navbar-brand" to="/dashboard">Social Platform</Link>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>

@@ -30,7 +30,6 @@ const Routes = (props) => {
     
       <Switch>
         <Layout>
-        {/* <Route path='/' exact component={Home} /> */}
         <Route path='/signup' exact   component={Register} />
         <Route path='/' exact component={Login}/>
         <Route path="/forgotpassword" exact component={ResetPassword}/>

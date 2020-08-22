@@ -6,7 +6,7 @@ import { deleteAccount } from '../redux/actions/profile'
 
 const isActive = (history, path) => {
 	if (history.location.pathname === path) {
-		return { backgroundColor: "#FF5F6D",color:"white" };
+		return { backgroundColor: "#128C7E",color:"white" };
 	} else {
 		return { color: "#333333" };
 	}

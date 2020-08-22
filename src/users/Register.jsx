@@ -95,7 +95,7 @@ const Register = ({ setAlert, register, alert, history, removeAlert, load}) => {
 							<div class="form-group">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={clickSubmit}
-									style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+									style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
 										load ? (<CircularProgress size={16} style={{ color: "white" }} />) : "submit"
 									}

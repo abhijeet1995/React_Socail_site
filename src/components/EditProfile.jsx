@@ -209,9 +209,9 @@ const EditProfile = ({ profile:{profile,loading}, setAlert, loader, createProfil
 							<div className="form-group">
 								<button className=" btn btn btn-lg btn-block"
 									onClick={onSubmit}
-										style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+										style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
 									{
-										load ? (<CircularProgress size={16} style={{ color: "white" }} />) : "submit"
+										load ? (<CircularProgress size={15} style={{ color: "white" }} />) : "submit"
 									}
 								</button>
 							</div>

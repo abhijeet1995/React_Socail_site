@@ -85,10 +85,10 @@ const NewPassword = ({ alert, setAlert }) => {
 						<div class="form-group">
 							<button className=" btn btn btn-lg btn-block"
 								onClick={clickSubmit}
-								style={{ backgroundColor: "#FF5F6D", color: "white", fontSize: "12px", textAlign: "center" }}>
+								style={{ backgroundColor: "#128C7E", color: "white", fontSize: "12px", textAlign: "center" }}>
 								{
 
-									loading ? (<CircularProgress size={24} style={{ color: '#ffffff' }} />) : "Password Update"
+									loading ? (<CircularProgress size={15} style={{ color: '#ffffff' }} />) : "Password Update"
 								}
 							</button>
 						</div>
