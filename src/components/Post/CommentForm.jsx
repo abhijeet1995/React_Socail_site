@@ -19,17 +19,18 @@ const CommentForm = ({ postId, addComment, alert, load, removeAlert }) => {
 	}
 
 	return (
+		<>
 		<div>
 			<Snack type={alert.type} key="EMAIL" message={alert.message} open={alert.open} close={handleClose} />
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1"> Description</label>
+				
 				<textarea className="form-control"
 					id="exampleFormControlTextarea1"
 					rows="3"
 					name='text'
 					cols='30'
-					rows='5'
-					placeholder='Add post'
+					rows='3'
+					placeholder='comment'
 					value={text}
 					onChange={e => setText(e.target.value)}
 				/>
@@ -44,6 +45,7 @@ const CommentForm = ({ postId, addComment, alert, load, removeAlert }) => {
 				</button>
 			</div>
 		</div>
+		</>
 	)
 }
 const mapStateToProps = state => ({

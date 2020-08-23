@@ -5,8 +5,9 @@ import Moment from 'react-moment'
 import {deleteComment} from '../../redux/actions/post'
 const CommentItem = ({ postId,comment:{_id,text,name,avatar,user,date},auth,deleteComment}) => {
 	return (
+		<>
 		<div>
-			<div className="post bg-white p-1 my-1">
+			<div className="post bg-white">
 				<div>
 					<Link to={`/profile/${user}`}>
 						<img
@@ -14,24 +15,26 @@ const CommentItem = ({ postId,comment:{_id,text,name,avatar,user,date},auth,dele
 							src={avatar}
 							alt=""
 						/>
-						<h4>{name}</h4>
+						<p>{name}</p>
 					</Link>
 				</div>
 				<div>
+					<p className="post-date"> Posted on &nbsp;
+						<Moment format='YYYY/MM/DD'>{date}</Moment>
+					</p>
 					<p className="my-1">
 					{text}	
             		</p>
-					<p className="post-date"> Posted On
-						<Moment format='YYYY/MM/DD'>{date}</Moment> 
-            		</p>
+					
 					{!auth.loading && user === auth.user._id && (
 
-						<i onClick={() => deleteComment(postId,_id)} className="fa fa-trash fa-2x" style={{ color: "red", cursor: "pointer", paddingLeft: "51px" }} />
+						<i onClick={() => deleteComment(postId,_id)} className="fa fa-trash fa-1x" style={{ color: "red", cursor: "pointer", paddingLeft: "51px" }} />
 
 					)}
 				</div>
 			</div>
-		</div>
+		</div><hr/>
+		</>
 	)
 }
 

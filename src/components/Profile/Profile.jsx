@@ -88,7 +88,7 @@ const Profile = ({
 								<h4>No education credentials</h4>
 							)}
 					</div>
-				</div>
+				</div><hr/>
 			<div className="row">
 				<div className="col-md-12">
 					{profile && profile.githubusername && (

@@ -15,9 +15,9 @@ const PostItem = ({
 	showActions
 }) => {
 	return (
-
-		<div className='post bg-white p-1 my-1'>
-			<div>
+		<>
+		<div className='post bg-white'>
+			<div className="mt-4">
 				<Link to={`/profile/${user}`}>
 					<img className='round-img' src={avatar} alt='' />
 					<p style={{ color: "#333333" }}><span>{name}</span></p>
@@ -34,16 +34,16 @@ const PostItem = ({
 					<Fragment>
 						<div className="d-flex">
 							<div>
-								<i onClick={() => addLike(_id)} className='fas fa-thumbs-up fa-2x' style={{ color: "#1976d2", cursor: "pointer" }} />
+								<i onClick={() => addLike(_id)} className='fas fa-thumbs-up fa-1x' style={{ color: "#1976d2", cursor: "pointer" }} />
 								<span>{likes.length > 0 && <span>{likes.length}</span>}Like</span>
 							</div>
 							<div>
-							<i onClick={() => removeLike(_id)} className='fas fa-thumbs-down fa-2x' style={{ color: "#1976d2", cursor: "pointer", paddingLeft: "51px" }} />
+							<i onClick={() => removeLike(_id)} className='fas fa-thumbs-down fa-1x' style={{ color: "#1976d2", cursor: "pointer", paddingLeft: "51px" }} />
 							</div>
 							<div>
 							<Link to={`/posts/${_id}`}>
 								
-								<i class="fa fa-comment fa-2x" aria-hidden="true" style={{ paddingLeft: "51px", cursor: "pointer", color: "#1976d2" }}></i>
+								<i class="fa fa-comment fa-1x" aria-hidden="true" style={{ paddingLeft: "51px", cursor: "pointer", color: "#1976d2" }}></i>
 									{comments.length > 0 && (
 										<span className='comment-count'style={{color:"#333333"}} >{comments.length}</span>
 									)}
@@ -51,14 +51,15 @@ const PostItem = ({
 							</div>
 							{!auth.loading && user === auth.user._id && (
 
-								<i onClick={() => deletePost(_id)} className="fa fa-trash fa-2x" style={{ color: "red", cursor: "pointer", paddingLeft: "51px" }} />
+								<i onClick={() => deletePost(_id)} className="fa fa-trash fa-1x" style={{ color: "red", cursor: "pointer", paddingLeft: "51px" }} />
 
 							)}
 						</div>
 					</Fragment>
 				)}
 			</div>
-		</div>
+		</div><hr/>
+		</>
 	);
 }
 PostItem.defaultProps = {
