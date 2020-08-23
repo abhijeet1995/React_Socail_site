@@ -7,7 +7,7 @@ const ProfileGitHub = ({username,getGitRepos,repos}) => {
 
 	useEffect(() => {
 		getGitRepos(username)
-	}, [])
+	}, [getGitRepos])
 
 	return (
 		<Fragment>

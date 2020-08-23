@@ -15,32 +15,32 @@ const ProfileTop = ({ profile: { status, company, location, website, social, use
 			<div className='d-flex justify-content-between mb-3'>
 				{website && (
 					<a href={website} target='_blank' rel='noopener noreferrer'>
-						<i className='fas fa-globe fa-1x' />
+						<i className='fas fa-globe fa-1x' style={{ color:"#128C7E"}} />
 					</a>
 				)}
 				{social && social.twitter && (
 					<a href={social.twitter} target='_blank' rel='noopener noreferrer'>
-						<i className='fab fa-twitter fa-1x' />
+						<i className='fab fa-twitter fa-1x' style={{ color: "#128C7E" }} />
 					</a>
 				)}
 				{social && social.facebook && (
 					<a href={social.facebook} target='_blank' rel='noopener noreferrer'>
-						<i className='fab fa-facebook fa-1x' />
+						<i className='fab fa-facebook fa-1x' style={{ color: "#128C7E" }} />
 					</a>
 				)}
 				{social && social.linkedin && (
 					<a href={social.linkedin} target='_blank' rel='noopener noreferrer'>
-						<i className='fab fa-linkedin fa-1x' />
+						<i className='fab fa-linkedin fa-1x' style={{ color: "#128C7E" }} />
 					</a>
 				)}
 				{social && social.youtube && (
 					<a href={social.youtube} target='_blank' rel='noopener noreferrer'>
-						<i className='fab fa-youtube fa-1x' />
+						<i className='fab fa-youtube fa-1x' style={{ color: "#128C7E" }} />
 					</a>
 				)}
 				{social && social.instagram && (
 					<a href={social.instagram} target='_blank' rel='noopener noreferrer'>
-						<i className='fab fa-instagram fa-1x' />
+						<i className='fab fa-instagram fa-1x' style={{ color: "#128C7E" }} />
 					</a>
 				)}
 			</div>
