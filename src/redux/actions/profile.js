@@ -26,7 +26,7 @@ export const getCurrentProfile = () =>async dispatch =>{
 //Get all Profile
 
 export const getALlProfile = () => async dispatch => {
-	//dispatch({ type: CLEAR_PROFILE });
+	dispatch({ type: CLEAR_PROFILE });
 
 	try {
 		const res = await axios.get(`${envData.url.REACT_APP_API_URL}/profile`)
