@@ -44,7 +44,7 @@ function Popup({ open, alert, type, removeAlert, link, onClick }) {
 						onClick={onClick ? onClick : handler}
 						color="primary"
 						autoFocus
-						style={{ backgroundColor: "#FF5F6D", color: "#fff" }}
+						style={{ backgroundColor: "#128C7E", color: "#fff",outline:"none" }}
 					>
 						Ok
           			</Button>
